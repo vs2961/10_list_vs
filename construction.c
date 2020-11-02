@@ -65,6 +65,8 @@ struct chips * remove_node(struct chips *front, char *na, float pr) {
         return NULL;
     }
     else if (strcmp(front -> name, na) == 0 && pr == front -> price) {
+        struct chips *save = front -> next;
+        free(front);
         return front -> next;
     }
     front -> next = remove_node(front -> next, na, pr);
